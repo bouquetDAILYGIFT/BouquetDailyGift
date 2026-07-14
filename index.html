@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tentang Penulis - DailyGift</title>
+    <style>
+        /* --- RESET TOTAL & OPTIMASI GITHUB PAGES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            overflow-x: hidden; /* Kunci layar biar ga bisa digeser kanan-kiri */
+            background-color: #ffffff;
+            color: #2b2b2b;
+            line-height: 1.7;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        /* Pembungkus halaman agar presisi di tengah layar HP/Laptop */
+        .author-viewport-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .author-wrapper {
+            width: 100%;
+            max-width: 600px;
+            padding: 40px 20px 60px 20px;
+            background: #ffffff;
+        }
+
+        /* --- TYPOGRAPHY BODONI CLASSIC BOLD --- */
+        h1, h2, h3, .author-name, .nav-box {
+            font-family: "Bodoni 72", "Bodoni MT", "Didot", "Bodoni Classic", serif;
+            font-weight: bold;
+            color: #800020; /* Tema Merah Maroon */
+        }
+
+        h1 {
+            font-size: 32px;
+            border-bottom: 3px solid #800020;
+            padding-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin-top: 45px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 5px;
+            scroll-margin-top: 20px; /* Jarak aman pas klik tombol scroll */
+        }
+
+        p {
+            font-size: 16px;
+            color: #444444;
+            margin-top: 15px;
+            margin-bottom: 22px;
+            text-align: justify;
+        }
+
+        .subtitle {
+            font-family: "Bodoni 72", "Bodoni MT", serif;
+            font-size: 16px;
+            font-style: italic;
+            color: #800020;
+            margin-top: 30px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #800020;
+            opacity: 0.2;
+            margin: 35px 0;
+        }
+
+        /* --- PROFILE CARD (MAROON & PUTIH) --- */
+        .profile-card {
+            background: #800020;
+            color: #ffffff;
+            padding: 30px 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+            border-radius: 0px;
+            text-align: center;
+        }
+
+        .profile-card h3 {
+            color: #ffffff;
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .profile-card p {
+            color: #ffffff;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .author-name {
+            font-size: 36px;
+            color: #ffffff !important;
+            margin-bottom: 5px;
+        }
+
+        /* --- KOTAK NAVIGASI INTERAKTIF (BERSIH TOTAL) --- */
+        .nav-boxes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .nav-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            border: 2px solid #800020;
+            color: #800020;
+            padding: 15px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-box:hover {
+            background: #800020;
+            color: #ffffff;
+        }
+
+        .arrow-symbol {
+            font-family: sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* --- SOSIAL MEDIA DI DALAM KARTU --- */
+        .social-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+        }
+
+        .social-btn:hover {
+            background: #ffffff;
+            color: #800020;
+        }
+
+        /* --- TAUTAN FOOTER BAWAH --- */
+        .links-section {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .author-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 15px;
+            background: #ffffff;
+            border: 1px solid #800020;
+            color: #800020;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .author-link:hover {
+            background: #800020;
+            color: #ffffff;
+        }
+
+        @media (max-width: 600px) {
+            .author-wrapper { padding: 25px 15px 40px 15px; }
+            h1 { font-size: 26px; }
+            p { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="author-viewport-container">
+        <div class="author-wrapper">
+            
+            <!-- Judul Teratas Halaman -->
+            <h1>About The Author</h1>
+
+            <!-- Kartu Profil @itsramor -->
+            <div class="profile-card">
+                <div class="author-name">@itsramor</div>
+                <h3>Pendiri, Pengembang Produk, & Konseptor Utama</h3>
+                
+                <p>Lahir dan tumbuh di lingkungan yang sederhana tanpa latar belakang yang muluk-muluk, @itsramor membangun perjalanannya tanpa fasilitas instan ataupun bantuan khusus dari pihak manapun. Semua keahlian didapatkan secara mandiri demi menciptakan sesuatu yang bernilai dari bawah.</p>
+                
+                <div class="social-container">
+                    <a href="https://instagram.com/itsramor" target="_blank" class="social-btn">Instagram</a>
+                    <a href="https://tiktok.com/@itsramor" target="_blank" class="social-btn">TikTok</a>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-style: italic; color: #666; font-size: 14px;">Silakan klik kotak di bawah untuk langsung menuju topik penjelasan:</p>
+            
+            <!-- Kotak Navigasi Interaktif Bersih Bebas Bug -->
+            <div class="nav-boxes-container">
+                <div class="nav-box" onclick="scrollToSection('ref-perjuangan')">
+                    <span>Tentang Perjuangan @itsramor</span>
+                    <span class="arrow-symbol">→</span>
+                </div>
+                <div class="nav-box" onclick="scrollToSection('ref-awalmula')">
+                    <span>Awal Mula Terciptanya DailyGift</span>
+                    <span class="arrow-symbol">→</span>
+                </div>
+                <div class="nav-box" onclick="scrollToSection('ref-evaluasi')">
+                    <span>Bagaimana Fitur Dievaluasi</span>
+                    <span class="arrow-symbol">→</span>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- KONTEN TEKS BAHASA INDONESIA -->
+            <div class="subtitle">Versi Singkat</div>
+            <p>@itsramor adalah sosok nyata di balik terciptanya seluruh sistem DailyGift. Kamu yang menggunakan platform ini sedang menikmati produk yang ia bangun secara mandiri dari nol—mulai dari konsep, pengembangan kode, hingga penyusunan setiap detail pengalaman kejutan di dalamnya.</p>
+
+            <div class="subtitle">Apa Arti Realitas Ini</div>
+            <p>DailyGift tidak dibangun oleh korporasi besar ataupun tim pengembang dengan modal melimpah. Platform ini lahir dari ketekunan satu orang. Karena kepemilikan produk dan pengembangan konten berada di tangan yang sama, setiap perubahan dan pembaruan dipastikan selaras dengan apa yang kamu rasakan langsung di aplikasi.</p>
+
+            <div class="subtitle">Prinsip yang Dipegang</div>
+            <p>Kami tidak mengklaim sebagai platform dengan validasi formal yang kaku. Fokus DailyGift sangat sederhana namun mendalam: menyajikan ruang emosional yang nyata, membantu mendefinisikan momen spesial, dan memberikan cara terbaik bagi kamu untuk menyampaikan pesan tulus kepada orang-orang terdekat.</p>
+
+            <div class="subtitle">Cara Membaca Halaman Ini</div>
+            <p>Kartu profil di atas memuat identitas pemilik dan pengembang utama situs. Kamu bisa menggunakannya untuk memverifikasi keaslian platform, menghubungi pengembang, serta mengakses tautan resmi yang terhubung dengan proyek mandiri ini.</p>
+
+            <hr>
+
+            <!-- SEKSI 1 -->
+            <h2 id="ref-perjuangan">Tentang @itsramor</h2>
+            <div class="subtitle">Murni Bergerak Sendiri</div>
+            <p>Ketiadaan fasilitas berlebih ataupun privilege khusus justru dibuktikan menjadi kekuatan utama. @itsramor membuktikan bahwa keterbatasan latar belakang bukanlah penghalang untuk menguasai teknologi koding dan manajemen produk digital. Setiap detail yang hadir di platform ini adalah buah dari kerja keras personal.</p>
+
+            <!-- SEKSI 2 -->
+            <h2 id="ref-awalmula">Terciptanya DailyGift</h2>
+            <div class="subtitle">Latar Belakang Produk</div>
+            <p>DailyGift tidak dibangun oleh korporasi dengan modal melimpah. Platform buket digital premium ini lahir dari sebuah ide sederhana: menyediakan ruang emosional yang rapi, elegan, dan estetik bagi siapa saja yang ingin mengirim kejutan tulus. Karena dikembangkan secara mandiri, setiap baris kodingannya dipantau secara intim untuk memastikan pengalaman terbaik.</p>
+
+            <!-- SEKSI 3 -->
+            <h2 id="ref-evaluasi">Proses Evaluasi Fitur</h2>
+            <div class="subtitle">Pemeriksaan Kualitas Mandiri</div>
+            <p>Sebelum sebuah fitur baru dirilis dan dinikmati di layar kamu, sistem melewati rangkaian uji coba mandiri yang ketat oleh @itsramor. Dimulai dari fungsionalitas kodingan agar tidak melenceng, kestabilan struktur visual di perangkat mobile, hingga memastikan alur interaksi terasa natural dan berkesan.</p>
+
+            <hr>
+
+            <!-- HUBUNGAN DAN DUKUNGAN RESMI -->
+            <div class="subtitle" style="text-align: center; font-size: 16px;">Hubungan & Dukungan Resmi</div>
+            <p style="text-align: center; margin-top: 5px; font-size: 14px;">Bila ada kendala sistem atau pertanyaan kemitraan, hubungi email resmi di bawah.</p>
+            
+            <div class="links-section">
+                <a href="mailto:support@dailygift.net" class="author-link" style="background: #800020; color: #ffffff;">
+                    <span>📩 support@dailygift.net</span>
+                </a>
+                <a href="#" class="author-link">
+                    <span>Baca Kebijakan Platform</span><span>→</span>
+                </a>
+                <a href="#" class="author-link">
+                    <span>Lihat Contoh Layout Hadiah</span><span>→</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SCRIPT SMOOTH SCROLL KOTAK INTERAKTIF -->
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>
